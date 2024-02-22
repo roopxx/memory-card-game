@@ -1,30 +1,61 @@
 import { PropTypes } from "prop-types";
 
 export function LevelSelector({ onChoice }) {
-  function handleClick(e) {
-    onChoice(e.target.value);
-  }
+  const levelButtons = document.querySelectorAll(".level");
+  const levelEasyClass = "bg-blue-400";
+  const levelMediumClass = "bg-green-400";
+  const levelHardClass = "bg-red-400";
 
   return (
-    <div className="flex gap-6 justify-around text-4xl font-['Protest_Riot'] mt-6 mb-8">
+    <div className="text-4xl text-center font-['Creepster'] mt-8">
       <button
         value={8}
-        className="w-30 bg-green-400 border-black border-2 px-2"
-        onClick={handleClick}
+        className="level w-48 border-black border-2 mr-10 px-2 hover:scale3d-125 hover:duration-300"
+        onClick={(e) => {
+          levelButtons.forEach((button) => {
+            button.classList.remove(
+              `${levelEasyClass}`,
+              `${levelMediumClass}`,
+              `${levelHardClass}`
+            );
+          });
+          e.currentTarget.classList.add(`${levelEasyClass}`);
+          onChoice(e.target.value);
+        }}
       >
         Easy
       </button>
       <button
         value={12}
-        className="w-30 bg-green-400 border-black border-2 px-2"
-        onClick={handleClick}
+        className="level w-48 border-black border-2 mr-10 px-2 hover:scale3d-125 hover:duration-300"
+        onClick={(e) => {
+          levelButtons.forEach((button) => {
+            button.classList.remove(
+              `${levelEasyClass}`,
+              `${levelMediumClass}`,
+              `${levelHardClass}`
+            );
+          });
+          e.currentTarget.classList.add(`${levelMediumClass}`);
+          onChoice(e.target.value);
+        }}
       >
         Medium
       </button>
       <button
         value={16}
-        className="w-30 bg-green-400 border-black border-2 px-2"
-        onClick={handleClick}
+        className="level w-48 border-black border-2 mr-10 px-2 hover:scale3d-125 hover:duration-300"
+        onClick={(e) => {
+          levelButtons.forEach((button) => {
+            button.classList.remove(
+              `${levelEasyClass}`,
+              `${levelMediumClass}`,
+              `${levelHardClass}`
+            );
+          });
+          e.currentTarget.classList.add(`${levelHardClass}`);
+          onChoice(e.target.value);
+        }}
       >
         Hard
       </button>
