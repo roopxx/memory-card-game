@@ -1,6 +1,6 @@
 import { PropTypes } from "prop-types";
 
-export function Result({ openDialog, gameOutcome }) {
+export function Result({ openDialog, gameOutcome, playAgain, returnHome }) {
   const backgroundImage = gameOutcome
     ? "bg-[url('/src/assets/result-win-bg.webp')]"
     : "bg-[url('/src/assets/result-lost-bg.webp')]";
@@ -25,10 +25,16 @@ export function Result({ openDialog, gameOutcome }) {
           )}
         </div>
         <div className="relative bottom-8 flex justify-between">
-          <button className="text-4xl border-8 mx-8 w-[250px] border-black px-4 py-2 rounded-xl bg-green-700 text-white">
+          <button
+            className="text-4xl border-8 mx-8 w-[250px] border-black px-4 py-2 rounded-xl bg-green-700 text-white"
+            onClick={playAgain}
+          >
             Play Again?
           </button>
-          <button className="text-4xl border-8 mx-8 w-[250px] border-black px-4 py-2 rounded-xl bg-red-700 text-white float-right">
+          <button
+            className="text-4xl border-8 mx-8 w-[250px] border-black px-4 py-2 rounded-xl bg-red-700 text-white float-right"
+            onClick={returnHome}
+          >
             Go Home?
           </button>
         </div>
@@ -40,4 +46,6 @@ export function Result({ openDialog, gameOutcome }) {
 Result.propTypes = {
   openDialog: PropTypes.bool,
   gameOutcome: PropTypes.bool,
+  playAgain: PropTypes.func,
+  returnHome: PropTypes.func,
 };
