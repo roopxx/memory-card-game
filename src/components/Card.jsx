@@ -8,7 +8,7 @@ export function Card({ imageSrc, imageText, onClick }) {
           className="perspective-1000 size-[300px] bg-transparent"
           onClick={onClick}
         >
-          <div className="flip relative size-full text-center transition-transform duration-700 transform-style-3d">
+          <div className="flip relative size-full text-center transition-transform duration-700 ease-linear transform-style-3d">
             <div className="absolute backface-hidden">
               <img
                 className="border-4 border-black"

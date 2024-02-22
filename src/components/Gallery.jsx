@@ -51,8 +51,19 @@ export function Gallery({ difficulty }) {
               console.log(card.name);
               updateScore(clickedCards.size + 1);
               checkClickedCards(card.id);
-              const shuffledCardsArr = shuffle([...cardsArr]);
-              setCardsArr(shuffledCardsArr);
+              document.querySelectorAll(".flip").forEach((card) => {
+                setTimeout(() => {
+                  card.classList.add("rotate-y-180");
+                }, 500);
+                setTimeout(() => {
+                  card.classList.remove("rotate-y-180");
+                }, 1700);
+              });
+
+              setTimeout(() => {
+                const shuffledCardsArr = shuffle([...cardsArr]);
+                setCardsArr(shuffledCardsArr);
+              }, 1500);
             }}
           />
         ))}
