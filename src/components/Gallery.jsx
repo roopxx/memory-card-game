@@ -6,7 +6,7 @@ import { useState } from "react";
 import { ScoreBoard } from "./ScoreBoard";
 import { Result } from "./Result";
 
-export function Gallery({ difficulty }) {
+export function Gallery({ difficulty, setStart }) {
   const [cardsArr, setCardsArr] = useState([]);
   const [clickedCards, setClickedCards] = useState(new Set());
   const [openDialog, setOpenDialog] = useState(false);
@@ -19,15 +19,13 @@ export function Gallery({ difficulty }) {
 
   function checkClickedCards(photoID) {
     if (clickedCards.has(photoID)) {
-      localStorage.setItem("bestScore", 0);
-      setClickedCards(new Set());
-      setOpenDialog(true);
+      setOpenDialog(!openDialog);
     } else {
       const newClickedCards = clickedCards.add(photoID);
       setClickedCards(newClickedCards);
     }
     if (difficulty === clickedCards.size) {
-      setOpenDialog(true);
+      setOpenDialog(!openDialog);
     }
   }
 
@@ -35,6 +33,16 @@ export function Gallery({ difficulty }) {
     const currentBestScore = parseInt(localStorage.getItem("bestScore"));
     const newBestScore = Math.max(currentBestScore, newScore);
     localStorage.setItem("bestScore", newBestScore);
+  }
+
+  function handlePlayAgain() {
+    setOpenDialog(!openDialog);
+    setClickedCards(new Set());
+  }
+
+  function handleReturnHome() {
+    setOpenDialog(!openDialog);
+    setStart(true);
   }
 
   return (
@@ -48,9 +56,8 @@ export function Gallery({ difficulty }) {
             imageText={card.name}
             onClick={(e) => {
               e.preventDefault();
-              console.log(card.name);
-              updateScore(clickedCards.size + 1);
               checkClickedCards(card.id);
+              updateScore(clickedCards.size);
               document.querySelectorAll(".flip").forEach((card) => {
                 setTimeout(() => {
                   card.classList.add("rotate-y-180");
@@ -71,6 +78,8 @@ export function Gallery({ difficulty }) {
         <Result
           openDialog={openDialog}
           gameOutcome={difficulty === clickedCards.size}
+          playAgain={handlePlayAgain}
+          returnHome={handleReturnHome}
         />
       </section>
     </>
@@ -79,4 +88,5 @@ export function Gallery({ difficulty }) {
 
 Gallery.propTypes = {
   difficulty: PropTypes.number,
+  setStart: PropTypes.func,
 };

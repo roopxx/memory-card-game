@@ -19,7 +19,7 @@ function App() {
       ) : (
         <div className="container mx-auto">
           <Header />
-          <Gallery difficulty={difficulty} />
+          <Gallery difficulty={difficulty} setStart={setStart} />
         </div>
       )}
     </>
