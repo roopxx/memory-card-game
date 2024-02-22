@@ -20,7 +20,7 @@ export function LevelSelector({ onChoice }) {
             );
           });
           e.currentTarget.classList.add(`${levelEasyClass}`);
-          onChoice(e.target.value);
+          onChoice(Number(e.target.value));
         }}
       >
         Easy
@@ -37,7 +37,7 @@ export function LevelSelector({ onChoice }) {
             );
           });
           e.currentTarget.classList.add(`${levelMediumClass}`);
-          onChoice(e.target.value);
+          onChoice(Number(e.target.value));
         }}
       >
         Medium
@@ -54,7 +54,7 @@ export function LevelSelector({ onChoice }) {
             );
           });
           e.currentTarget.classList.add(`${levelHardClass}`);
-          onChoice(e.target.value);
+          onChoice(Number(e.target.value));
         }}
       >
         Hard
