@@ -9,7 +9,7 @@ export function LevelSelector({ onChoice }) {
   return (
     <div className="text-4xl text-center font-['Creepster'] mt-8">
       <button
-        value={8}
+        value={5}
         className="level w-48 border-black border-2 mr-10 px-2 hover:scale3d-125 hover:duration-300"
         onClick={(e) => {
           levelButtons.forEach((button) => {
@@ -26,7 +26,7 @@ export function LevelSelector({ onChoice }) {
         Easy
       </button>
       <button
-        value={12}
+        value={10}
         className="level w-48 border-black border-2 mr-10 px-2 hover:scale3d-125 hover:duration-300"
         onClick={(e) => {
           levelButtons.forEach((button) => {
@@ -43,7 +43,7 @@ export function LevelSelector({ onChoice }) {
         Medium
       </button>
       <button
-        value={16}
+        value={15}
         className="level w-48 border-black border-2 mr-10 px-2 hover:scale3d-125 hover:duration-300"
         onClick={(e) => {
           levelButtons.forEach((button) => {
