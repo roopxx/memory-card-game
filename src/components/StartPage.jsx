@@ -3,7 +3,7 @@ import { LevelSelector } from "./LevelSelector";
 
 export function StartPage({ onClick, setDifficulty }) {
   return (
-    <section className="bg-[url('/src/assets/background.jpg')] h-screen bg-cover bg-no-repeat bg-bottom">
+    <section className="bg-[url('/src/assets/background.webp')] h-screen bg-cover bg-no-repeat bg-bottom">
       <div className="w-full flex flex-col items-center">
         <h1 className="font-['Creepster'] text-slate-700 text-9xl mt-10">
           THE RICK AND MORTY PRESENTS!
