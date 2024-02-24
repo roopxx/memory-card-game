@@ -11,18 +11,18 @@ export function Result({ openDialog, gameOutcome, playAgain, returnHome }) {
       className="h-full bg-transparent font-['Protest_Riot']"
     >
       <div
-        className={`flex flex-col justify-end h-[576px] w-[1000px] border-4 border-yellow-600 ${backgroundImage} bg-cover bg-[center_-4.5rem] ${
-          gameOutcome ? `text-green-900` : `text-red-900`
-        }`}
+        className={`flex flex-col justify-end h-[576px] w-[1000px] border-4 border-yellow-600 ${backgroundImage} bg-cover bg-[center_-4.5rem]`}
       >
         <div className="relative bottom-20">
-          {gameOutcome ? (
-            <h1 className="text-7xl text-center text-white">
-              Congratulation! You Won.
-            </h1>
-          ) : (
-            <h1 className="text-8xl text-center text-white">You Lost!</h1>
-          )}
+          <h1
+            className={`text-7xl text-center text-white ${
+              gameOutcome
+                ? `drop-shadow-[0_6.2px_5.2px_green]`
+                : `drop-shadow-[0_6.2px_5.2px_red]`
+            }`}
+          >
+            {gameOutcome ? "Congratulation! You Won." : "You Lost!"}
+          </h1>
         </div>
         <div className="relative bottom-8 flex justify-between">
           <button
