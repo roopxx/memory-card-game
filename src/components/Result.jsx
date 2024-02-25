@@ -8,10 +8,10 @@ export function Result({ openDialog, gameOutcome, playAgain, returnHome }) {
   return (
     <dialog
       open={openDialog}
-      className="h-full bg-transparent font-['Protest_Riot']"
+      className="h-auto bg-transparent font-['Protest_Riot']"
     >
       <div
-        className={`flex flex-col justify-end h-[576px] w-[1000px] border-4 border-yellow-600 ${backgroundImage} bg-cover bg-[center_-4.5rem]`}
+        className={`flex flex-col justify-end h-[576px] w-[1000px] border-4 border-yellow-600 animate-result ${backgroundImage} bg-cover bg-[center_-4.5rem]`}
       >
         <div className="relative bottom-20">
           <h1
