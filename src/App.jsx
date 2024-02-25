@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Header } from "./components/Header";
 import { StartPage } from "./components/StartPage";
 import { Gallery } from "./components/Gallery";
+import { Info } from "./components/Info";
 
 function App() {
   const [start, setStart] = useState(true);
@@ -22,6 +23,7 @@ function App() {
           <Gallery difficulty={difficulty} setStart={setStart} />
         </div>
       )}
+      <Info />
     </>
   );
 }
