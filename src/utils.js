@@ -12,7 +12,7 @@ export function getCards(difficultyLevel) {
           ![
             6, 19, 20, 56, 61, 66, 95, 104, 130, 157, 189, 214, 222, 249, 269,
             294, 297, 310, 315, 348, 349, 370, 399,
-          ].includes(card.id)
+          ].includes(card.id),
       );
       return shuffle([...filteredCards]).slice(0, difficultyLevel);
     });

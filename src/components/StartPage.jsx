@@ -3,12 +3,12 @@ import { LevelSelector } from "./LevelSelector";
 
 export function StartPage({ onClick, setDifficulty }) {
   return (
-    <section className="bg-[url('/src/assets/background.webp')] h-screen bg-cover bg-no-repeat bg-bottom">
-      <div className="w-full flex flex-col items-center">
-        <h1 className="font-['Creepster'] text-slate-700 text-9xl mt-10">
+    <section className="h-screen bg-[url('/src/assets/background.webp')] bg-cover bg-bottom bg-no-repeat">
+      <div className="flex w-full flex-col items-center">
+        <h1 className="mt-10 font-['Creepster'] text-9xl text-slate-700">
           THE RICK AND MORTY PRESENTS!
         </h1>
-        <h2 className="font-['Creepster'] text-slate-700 text-9xl mt-8">
+        <h2 className="mt-8 font-['Creepster'] text-9xl text-slate-700">
           <span className="text-red-800 drop-shadow-[0_6.2px_5.2px_black]">
             MEMO
           </span>
@@ -19,7 +19,7 @@ export function StartPage({ onClick, setDifficulty }) {
         <div className="text-center font-['Protest_Riot']">
           <LevelSelector onChoice={setDifficulty} />
           <button
-            className="font-['Creepster'] text-slate-700 text-8xl mt-6 hover:text-black hover:scale-110 duration-300"
+            className="mt-6 font-['Creepster'] text-8xl text-slate-700 duration-300 hover:text-black hover:scale-110"
             onClick={onClick}
           >
             Start Game!

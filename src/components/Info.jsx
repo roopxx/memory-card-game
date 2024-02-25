@@ -9,9 +9,9 @@ export function Info() {
   }
 
   return (
-    <div className="flex flex-col items-end gap-5 fixed right-5 bottom-5">
+    <div className="fixed bottom-5 right-5 flex flex-col items-end gap-5">
       {showInfo && (
-        <div className="instructions flex flex-col items-end max-w-[15vw] p-5 font-semibold text-white bg-black animate-swoopIn shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
+        <div className="flex max-w-[15vw] animate-swoopIn flex-col items-end bg-black p-5 font-semibold text-white shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
           <p className="mb-5 text-xl">
             Win the game by clicking each{" "}
             <span className="text-red-600">Rick</span> &{" "}
@@ -24,7 +24,7 @@ export function Info() {
         </div>
       )}
       <button
-        className="font-bold text-3xl text-white rounded-full size-[60px] bg-black"
+        className="size-[60px] rounded-full bg-black text-3xl font-bold text-white"
         onClick={handleClick}
       >
         ?

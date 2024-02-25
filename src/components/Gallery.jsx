@@ -56,7 +56,7 @@ export function Gallery({ difficulty, setStart }) {
       ) : (
         <>
           <ScoreBoard successClicks={clickedCards.size} />
-          <section className="grid grid-cols-5 gap-10 mb-16">
+          <section className="mb-16 grid grid-cols-5 gap-10">
             {cardsArr.map((card) => (
               <Card
                 key={card.id}

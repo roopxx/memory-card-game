@@ -7,16 +7,16 @@ export function LevelSelector({ onChoice }) {
   const levelHardClass = "bg-red-400";
 
   return (
-    <div className="text-4xl text-center font-['Creepster'] mt-8">
+    <div className="mt-8 text-center font-['Creepster'] text-4xl">
       <button
         value={5}
-        className="level w-48 border-black border-2 mr-10 px-2 hover:scale3d-125 hover:duration-300"
+        className="level mr-10 w-48 border-2 border-black px-2 hover:duration-300 hover:scale3d-125"
         onClick={(e) => {
           levelButtons.forEach((button) => {
             button.classList.remove(
               `${levelEasyClass}`,
               `${levelMediumClass}`,
-              `${levelHardClass}`
+              `${levelHardClass}`,
             );
           });
           e.currentTarget.classList.add(`${levelEasyClass}`);
@@ -27,13 +27,13 @@ export function LevelSelector({ onChoice }) {
       </button>
       <button
         value={10}
-        className="level w-48 border-black border-2 mr-10 px-2 hover:scale3d-125 hover:duration-300"
+        className="level mr-10 w-48 border-2 border-black px-2 hover:duration-300 hover:scale3d-125"
         onClick={(e) => {
           levelButtons.forEach((button) => {
             button.classList.remove(
               `${levelEasyClass}`,
               `${levelMediumClass}`,
-              `${levelHardClass}`
+              `${levelHardClass}`,
             );
           });
           e.currentTarget.classList.add(`${levelMediumClass}`);
@@ -44,13 +44,13 @@ export function LevelSelector({ onChoice }) {
       </button>
       <button
         value={15}
-        className="level w-48 border-black border-2 mr-10 px-2 hover:scale3d-125 hover:duration-300"
+        className="level mr-10 w-48 border-2 border-black px-2 hover:duration-300 hover:scale3d-125"
         onClick={(e) => {
           levelButtons.forEach((button) => {
             button.classList.remove(
               `${levelEasyClass}`,
               `${levelMediumClass}`,
-              `${levelHardClass}`
+              `${levelHardClass}`,
             );
           });
           e.currentTarget.classList.add(`${levelHardClass}`);

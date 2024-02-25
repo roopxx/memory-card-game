@@ -11,11 +11,11 @@ export function Result({ openDialog, gameOutcome, playAgain, returnHome }) {
       className="h-auto bg-transparent font-['Protest_Riot']"
     >
       <div
-        className={`flex flex-col justify-end h-[576px] w-[1000px] border-4 border-yellow-600 animate-result ${backgroundImage} bg-cover bg-[center_-4.5rem]`}
+        className={`flex h-[576px] w-[1000px] animate-result flex-col justify-end border-4 border-yellow-600 ${backgroundImage} bg-cover bg-[center_-4.5rem]`}
       >
         <div className="relative bottom-20">
           <h1
-            className={`text-7xl text-center text-white ${
+            className={`text-center text-7xl text-white ${
               gameOutcome
                 ? `drop-shadow-[0_6.2px_5.2px_green]`
                 : `drop-shadow-[0_6.2px_5.2px_red]`
@@ -26,13 +26,13 @@ export function Result({ openDialog, gameOutcome, playAgain, returnHome }) {
         </div>
         <div className="relative bottom-8 flex justify-between">
           <button
-            className="text-4xl border-8 mx-8 w-[250px] border-black px-4 py-2 rounded-xl bg-green-700 text-white"
+            className="mx-8 w-[250px] rounded-xl border-8 border-black bg-green-700 px-4 py-2 text-4xl text-white"
             onClick={playAgain}
           >
             Play Again?
           </button>
           <button
-            className="text-4xl border-8 mx-8 w-[250px] border-black px-4 py-2 rounded-xl bg-red-700 text-white float-right"
+            className="float-right mx-8 w-[250px] rounded-xl border-8 border-black bg-red-700 px-4 py-2 text-4xl text-white"
             onClick={returnHome}
           >
             Go Home?
