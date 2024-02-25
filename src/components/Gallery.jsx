@@ -1,17 +1,21 @@
 import { Card } from "./Card";
 import { getCards, shuffle } from "../utils";
 import { PropTypes } from "prop-types";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ScoreBoard } from "./ScoreBoard";
 import { Result } from "./Result";
+import { Loading } from "./Loading";
 
 export function Gallery({ difficulty, setStart }) {
   const [cardsArr, setCardsArr] = useState([]);
   const [clickedCards, setClickedCards] = useState(new Set());
   const [openDialog, setOpenDialog] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2500);
     getCards(difficulty).then((cards) => {
       setCardsArr(cards);
     });
@@ -19,13 +23,13 @@ export function Gallery({ difficulty, setStart }) {
 
   function checkClickedCards(photoID) {
     if (clickedCards.has(photoID)) {
-      setOpenDialog(!openDialog);
+      setOpenDialog(true);
     } else {
       const newClickedCards = clickedCards.add(photoID);
       setClickedCards(newClickedCards);
     }
     if (difficulty === clickedCards.size) {
-      setOpenDialog(!openDialog);
+      setOpenDialog(true);
     }
   }
 
@@ -36,52 +40,58 @@ export function Gallery({ difficulty, setStart }) {
   }
 
   function handlePlayAgain() {
-    setOpenDialog(!openDialog);
+    setOpenDialog(false);
     setClickedCards(new Set());
   }
 
   function handleReturnHome() {
-    setOpenDialog(!openDialog);
+    setOpenDialog(false);
     setStart(true);
   }
 
   return (
     <>
-      <ScoreBoard successClicks={clickedCards.size} />
-      <section className="grid grid-cols-5 gap-10 mb-16">
-        {cardsArr.map((card) => (
-          <Card
-            key={card.id}
-            imageSrc={card.image}
-            imageText={card.name}
-            onClick={(e) => {
-              e.preventDefault();
-              checkClickedCards(card.id);
-              updateScore(clickedCards.size);
-              document.querySelectorAll(".flip").forEach((card) => {
-                setTimeout(() => {
-                  card.classList.add("rotate-y-180");
-                }, 500);
-                setTimeout(() => {
-                  card.classList.remove("rotate-y-180");
-                }, 1700);
-              });
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <ScoreBoard successClicks={clickedCards.size} />
+          <section className="grid grid-cols-5 gap-10 mb-16">
+            {cardsArr.map((card) => (
+              <Card
+                key={card.id}
+                imageSrc={card.image}
+                imageText={card.name}
+                onClick={(e) => {
+                  e.preventDefault();
+                  checkClickedCards(card.id);
+                  updateScore(clickedCards.size);
+                  document.querySelectorAll(".flip").forEach((card) => {
+                    setTimeout(() => {
+                      card.classList.add("rotate-y-180");
+                    }, 500);
+                    setTimeout(() => {
+                      card.classList.remove("rotate-y-180");
+                    }, 1700);
+                  });
 
-              setTimeout(() => {
-                const shuffledCardsArr = shuffle([...cardsArr]);
-                setCardsArr(shuffledCardsArr);
-              }, 1500);
-            }}
-          />
-        ))}
+                  setTimeout(() => {
+                    const shuffledCardsArr = shuffle([...cardsArr]);
+                    setCardsArr(shuffledCardsArr);
+                  }, 1500);
+                }}
+              />
+            ))}
 
-        <Result
-          openDialog={openDialog}
-          gameOutcome={difficulty === clickedCards.size}
-          playAgain={handlePlayAgain}
-          returnHome={handleReturnHome}
-        />
-      </section>
+            <Result
+              openDialog={openDialog}
+              gameOutcome={difficulty === clickedCards.size}
+              playAgain={handlePlayAgain}
+              returnHome={handleReturnHome}
+            />
+          </section>
+        </>
+      )}
     </>
   );
 }
