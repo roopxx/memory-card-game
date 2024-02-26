@@ -7,10 +7,10 @@ export function LevelSelector({ onChoice }) {
   const levelHardClass = "bg-red-400";
 
   return (
-    <div className="mt-8 text-center font-['Creepster'] text-4xl">
+    <div className="mt-8 space-y-4 font-['Creepster'] text-4xl sm:space-x-8">
       <button
         value={5}
-        className="level mr-10 w-48 border-2 border-black px-2 hover:duration-300 hover:scale3d-125"
+        className="level w-48 border-2 border-black px-2 hover:duration-300 hover:scale3d-125"
         onClick={(e) => {
           levelButtons.forEach((button) => {
             button.classList.remove(
@@ -27,7 +27,7 @@ export function LevelSelector({ onChoice }) {
       </button>
       <button
         value={10}
-        className="level mr-10 w-48 border-2 border-black px-2 hover:duration-300 hover:scale3d-125"
+        className="level w-48 border-2 border-black px-2 hover:duration-300 hover:scale3d-125"
         onClick={(e) => {
           levelButtons.forEach((button) => {
             button.classList.remove(
@@ -44,7 +44,7 @@ export function LevelSelector({ onChoice }) {
       </button>
       <button
         value={15}
-        className="level mr-10 w-48 border-2 border-black px-2 hover:duration-300 hover:scale3d-125"
+        className="level w-48 border-2 border-black px-2 hover:duration-300 hover:scale3d-125"
         onClick={(e) => {
           levelButtons.forEach((button) => {
             button.classList.remove(

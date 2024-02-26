@@ -10,7 +10,7 @@ export function ScoreBoard({ successClicks }) {
   });
 
   return (
-    <div className="mb-8 mt-6 flex justify-around font-['Protest_Riot'] text-4xl">
+    <div className="mb-4 mt-2 flex justify-around font-['Protest_Riot'] sm:text-4xl xl:mb-8 xl:mt-6">
       <h1>Best Score: {localStorage.getItem("bestScore")}</h1>
       <h1>Current Score: {successClicks}</h1>
     </div>
